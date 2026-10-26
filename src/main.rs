@@ -1,12 +1,12 @@
 use regex::Regex;
 
 #[derive(Debug)]
-struct Item {
+struct TodoItem {
     title: String,
     completed: bool,
 }
 
-impl Item {
+impl TodoItem {
     fn new(title: impl Into<String>) -> Self {
         Self {
             title: title.into(),
@@ -20,7 +20,7 @@ fn is_valid_title(title: &str) -> bool {
 }
 
 fn main() {
-    let task = Item::new("Prepare stacked PR demo");
+    let task = TodoItem::new("Prepare stacked PR demo");
     println!("{task:?}");
     println!("Valid title: {}", is_valid_title(&task.title));
 }
