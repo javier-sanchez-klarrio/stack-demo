@@ -13,6 +13,9 @@ impl TodoItem {
             completed: false,
         }
     }
+    fn complete(&mut self) {
+        self.completed = true;
+    }
 }
 
 fn is_valid_title(title: &str) -> bool {
