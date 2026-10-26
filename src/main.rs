@@ -13,6 +13,10 @@ impl TodoItem {
             completed: false,
         }
     }
+    
+    fn complete(&mut self) {
+        self.completed = true;
+    }
 }
 
 fn is_valid_title(title: &str) -> bool {
@@ -23,4 +27,20 @@ fn main() {
     let task = TodoItem::new("Prepare stacked PR demo");
     println!("{task:?}");
     println!("Valid title: {}", is_valid_title(&task.title));
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn completing_a_task_marks_it_completed() {
+        let mut task = TodoItem::new("Write demo");
+
+        assert!(!task.completed);
+
+        task.complete();
+
+        assert!(task.completed);
+    }
 }
