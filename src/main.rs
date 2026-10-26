@@ -5,7 +5,7 @@ struct TodoItem {
     title: String,
     completed: bool,
 }
-
+// nothing really
 impl TodoItem {
     fn new(title: impl Into<String>) -> Self {
         Self {
